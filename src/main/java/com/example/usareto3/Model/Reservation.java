@@ -22,7 +22,7 @@ public class Reservation {
 
     @ManyToOne
     @JoinColumn(name = "clientId")
-    @JsonIgnoreProperties({"reservations", "messages"})
+    @JsonIgnoreProperties({"messages", "reservations"})
     private Client client;
 
     @OneToOne
