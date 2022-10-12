@@ -60,8 +60,8 @@ public class CinemaService {
     }
 
     public boolean deleteCinema(int cinemaId) {
-        Boolean resultado = getCinema(cinemaId).map(cinemaPoreliminar -> {
-            cinemaRepository.delete(cinemaPoreliminar);
+        Boolean resultado = getCinema(cinemaId).map(cinemaPorEliminar -> {
+            cinemaRepository.delete(cinemaPorEliminar);
             return true;
         }).orElse(false);
         return resultado;

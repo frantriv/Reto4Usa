@@ -52,8 +52,8 @@ public class CategoryService {
     }
 
     public boolean deleteCategory(int categoryId) {
-        Boolean resultado = getCategory(categoryId).map(categoryPoreliminar -> {
-            categoryRepository.delete(categoryPoreliminar);
+        Boolean resultado = getCategory(categoryId).map(categoryPorEliminar -> {
+            categoryRepository.delete(categoryPorEliminar);
             return true;
         }).orElse(false);
         return resultado;

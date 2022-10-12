@@ -1,5 +1,6 @@
 package com.example.usareto3.Controller;
 
+import com.example.usareto3.Model.Category;
 import com.example.usareto3.Service.ClientService;
 import com.example.usareto3.Model.Client;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,5 +31,17 @@ public class ClientController {
     @ResponseStatus(HttpStatus.CREATED)
     public Client save(@RequestBody Client client){
         return clientService.save(client);
+    }
+
+    @PutMapping("/update")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Client update(@RequestBody Client client){
+        return clientService.update(client);
+    }
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public boolean delete(@PathVariable("id")int id) {
+        return clientService.deleteClient(id);
     }
 }

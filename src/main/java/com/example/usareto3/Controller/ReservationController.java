@@ -1,5 +1,6 @@
 package com.example.usareto3.Controller;
 
+import com.example.usareto3.Model.Admin;
 import com.example.usareto3.Model.Reservation;
 import com.example.usareto3.Service.ReservationService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +30,19 @@ public class ReservationController {
     @PostMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
     public Reservation save(@RequestBody Reservation reservation){
-
         return reservationService.save(reservation);
     }
+
+    @PutMapping("/update")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Reservation update(@RequestBody Reservation reservation) {
+        return reservationService.update(reservation);
+    }
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public boolean delete(@PathVariable("id")int id) {
+        return reservationService.deleteReservation(id);
+    }
+
 }

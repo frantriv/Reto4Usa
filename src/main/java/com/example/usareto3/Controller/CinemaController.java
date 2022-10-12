@@ -1,5 +1,6 @@
 package com.example.usareto3.Controller;
 
+import com.example.usareto3.Model.Category;
 import com.example.usareto3.Service.CinemaService;
 import com.example.usareto3.Model.Cinema;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,4 +32,17 @@ public class CinemaController {
     public Cinema save(@RequestBody Cinema cinema){
         return cinemaService.save(cinema);
     }
+
+    @PutMapping("/update")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Cinema update(@RequestBody Cinema cinema){
+        return cinemaService.update(cinema);
+    }
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public boolean delete(@PathVariable("id")int id) {
+        return cinemaService.deleteCinema(id);
+    }
+
 }
